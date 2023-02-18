@@ -7,5 +7,5 @@ export default function Home() {
             <p className="desc">Some description if needed</p>
             <button className="start-btn">Start Quiz</button>
         </div>
-    )
+    );
 }
