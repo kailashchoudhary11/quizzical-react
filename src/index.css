@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.yellow-blob {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.blue-blob {
+    position: absolute;
+    bottom: 0;
+}
