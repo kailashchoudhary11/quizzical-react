@@ -3,13 +3,17 @@
     padding: 0;
 }
 
+
+.yellow-blob, .blue-blob {
+    position: fixed;
+    z-index: -1;
+}
+
 .yellow-blob {
-    position: absolute;
     right: 0;
     top: 0;
 }
 
 .blue-blob {
-    position: absolute;
     bottom: 0;
 }
