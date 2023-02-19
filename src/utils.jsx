@@ -1,29 +1,29 @@
 const categories = [
     "Any Category",
-    "Animals",
-    "Art",
-    "Celebrities",
-    "Entertainment: Board Games",
+    "General Knowledge",
     "Entertainment: Books",
-    "Entertainment: Cartoon & Animations",
-    "Entertainment: Comics",
     "Entertainment: Film",
-    "Entertainment: Japanese Anime & Manga",
     "Entertainment: Music",
     "Entertainment: Musicals & Theatres",
     "Entertainment: Television",
     "Entertainment: Video Games",
-    "General Knowledge",
-    "Geography",
-    "History",
-    "Mythology",
-    "Politics",
+    "Entertainment: Board Games",
     "Science & Nature",
     "Science: Computers",
-    "Science: Gadgets",
     "Science: Mathematics",
+    "Mythology",
     "Sports",
+    "Geography",
+    "History",
+    "Politics",
+    "Art",
+    "Celebrities",
+    "Animals",
     "Vehicles",
+    "Entertainment: Comics",
+    "Science: Gadgets",
+    "Entertainment: Japanese Anime & Manga",
+    "Entertainment: Cartoon & Animations",
 ];
 
 const difficulties = [
@@ -40,4 +40,12 @@ const gameState = {
     close: 3, 
 };
 
-export {categories, difficulties, gameState,};
+const initialData = {
+    questions: 10,
+    category: categories[0],
+    difficulty: difficulties[0],
+};
+
+const baseUrl = "https://opentdb.com/api.php"
+
+export {baseUrl, categories, difficulties, gameState, initialData, };

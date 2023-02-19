@@ -1,15 +1,11 @@
 import React from "react";
 import "./Preferences.css";
-import { categories, difficulties, gameState } from "../utils";
+import {baseUrl, categories, difficulties, gameState, initialData } from "../utils";
 
 export default function Preferences(props) {
 
-    const { setGameState } = props;
-    const initialData = {
-        questions: 10,
-        category: categories[0],
-        difficulty: difficulties[0],
-    };
+    const { setGameState, setUrl } = props;
+
     const [formData, setFormData] = React.useState(initialData);
 
     const categoryOptEls = categories.map((category, i) => (
@@ -29,14 +25,19 @@ export default function Preferences(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        const {category, difficulty, questions} = formData;
+
+        let endPoint = `?amount=${questions}`;
+        if (category !== categories[0]) {
+            endPoint += `&category=${categories.indexOf(category) + 8}`;
+        }
+        if (difficulty !== difficulties[0]) {
+            endPoint += `&difficulty=${difficulty.toLowerCase()}`;
+        }
+        setUrl(baseUrl + endPoint);
+        setGameState(gameState.solve);
         setFormData(initialData);
     }
-
-
-    function startQuiz() {
-        setGameState(gameState.solve);
-    }
-
     return (
         <div className="container">
             <h1 className="title">Choose Preferences</h1>
@@ -78,7 +79,7 @@ export default function Preferences(props) {
                 >
                     {difficultyOptEls}
                 </select>
-                <button className="start-btn" onClick={startQuiz}>Start Quiz</button>
+                <button className="start-btn">Start Quiz</button>
             </form>
         </div>
     );

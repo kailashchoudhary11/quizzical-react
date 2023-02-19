@@ -4,7 +4,9 @@ import React from "react";
 import Preferences from "./components/Preferences";
 
 export default function () {
+
 	const [currentState, setCurrentState] = React.useState(gameState.close);
+	const [apiUrl, setApiUrl] = React.useState("");
 
 	return (
 		<div>
@@ -16,6 +18,7 @@ export default function () {
 			{currentState === gameState.select &&
 				<Preferences
 					setGameState={setCurrentState}
+					setUrl={setApiUrl}
 				/>}
 		</div>
 	);
