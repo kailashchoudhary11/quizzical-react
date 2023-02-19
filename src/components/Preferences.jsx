@@ -34,6 +34,7 @@ export default function Preferences(props) {
         if (difficulty !== difficulties[0]) {
             endPoint += `&difficulty=${difficulty.toLowerCase()}`;
         }
+        endPoint += "&type=multiple";
         setUrl(baseUrl + endPoint);
         setGameState(gameState.solve);
         setFormData(initialData);

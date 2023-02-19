@@ -1,3 +1,5 @@
+const baseUrl = "https://opentdb.com/api.php";
+
 const categories = [
     "Any Category",
     "General Knowledge",
@@ -37,7 +39,7 @@ const gameState = {
     select: 0,
     solve: 1,
     result: 2,
-    close: 3, 
+    close: 3,
 };
 
 const initialData = {
@@ -46,6 +48,25 @@ const initialData = {
     difficulty: difficulties[0],
 };
 
-const baseUrl = "https://opentdb.com/api.php"
+async function fetchData(url) {
+    const res = await fetch(url);
+    const data = await res.json()
+    return data;
+}
 
-export {baseUrl, categories, difficulties, gameState, initialData, };
+function shuffleArray(array) {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+
+export { baseUrl, categories, difficulties, fetchData, gameState, initialData, shuffleArray, };
