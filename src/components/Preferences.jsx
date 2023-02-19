@@ -1,8 +1,10 @@
 import React from "react";
 import "./Preferences.css";
-import { categories, difficulties } from "../utils";
+import { categories, difficulties, gameState } from "../utils";
 
-export default function Preferences() {
+export default function Preferences(props) {
+
+    const {setGameState} = props;
 
     const categoryOptEls = categories.map((category, i) => (
         <option key={i} value={category}>{category}</option>
@@ -11,6 +13,10 @@ export default function Preferences() {
     const difficultyOptEls = difficulties.map((difficulty, i) => (
         <option key={i} value={difficulty}>{difficulty}</option>
     ));
+
+    function startQuiz() {
+        setGameState(gameState.solve);
+    }
 
     return (
         <div className="container">
@@ -36,7 +42,7 @@ export default function Preferences() {
                 <select name="difficulty" id="difficulty" className="select-el">
                     {difficultyOptEls}
                 </select>
-                <button className="start-btn" onClick={() => {}}>Start Quiz</button>
+                <button className="start-btn" onClick={startQuiz}>Start Quiz</button>
             </form>
         </div>
     );

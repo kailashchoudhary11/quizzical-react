@@ -34,9 +34,9 @@ const difficulties = [
 ];
 
 const gameState = {
-    open: 0,
-    select: 1,
-    solve: 2,
+    select: 0,
+    solve: 1,
+    result: 2,
     close: 3, 
 };
 
