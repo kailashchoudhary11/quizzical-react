@@ -5,7 +5,7 @@ import Preferences from "./components/Preferences";
 
 export default function () {
 	const [currentState, setCurrentState] = React.useState(gameState.close);
-	console.log(currentState);
+
 	return (
 		<div>
 			{currentState === gameState.close &&
