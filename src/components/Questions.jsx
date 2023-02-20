@@ -37,7 +37,13 @@ export default function Questions(props) {
         processData();
     }, [apiUrl]);
 
-    const questionEls = data.map((question, i) => <Question key={i} question={question}/>);
+    const questionEls = data.map((question, i) => (
+        <Question
+            key={i}
+            question={question}
+            setData={setData}
+        />
+    ));
 
     return (
         <>

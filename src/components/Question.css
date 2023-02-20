@@ -12,8 +12,9 @@
 
 .options {
     display: flex;
-    gap: 1rem;
+    gap: 1rem;cl
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .line {
