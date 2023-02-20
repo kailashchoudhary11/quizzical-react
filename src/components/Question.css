@@ -12,8 +12,8 @@
 
 .options {
     display: flex;
-    gap: 1rem;cl
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
@@ -21,8 +21,8 @@
     background-color: #DBDEF0; 
     color: #DBDEF0; 
     height:0.8px;
-    width: 70%;
+    width: 80%;
     margin-left: 0;
     border-width:0;
-    margin: 15px 0px;
+    margin: 1rem 0px;
 }
