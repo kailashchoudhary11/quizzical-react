@@ -53,7 +53,7 @@ export default function Questions(props) {
                 </div>
                 :
                 <div className="questions-container">
-                    <h1 className="title">Quizzical</h1>
+                    <h1 className="app-title">Quizzical</h1>
                     {questionEls}
                 </div>
             }
