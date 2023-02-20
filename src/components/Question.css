@@ -1,0 +1,27 @@
+.ques-container {
+    margin-top: 2rem;
+    padding: 0 1rem 0 2rem;
+}
+
+.question {
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #293264;
+}
+
+.options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.line {
+    background-color: #DBDEF0; 
+    color: #DBDEF0; 
+    height:0.8px;
+    width: 70%;
+    margin-left: 0;
+    border-width:0;
+    margin: 15px 0px;
+}

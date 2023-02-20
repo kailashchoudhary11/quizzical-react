@@ -10,8 +10,6 @@ export default function () {
 	const [apiUrl, setApiUrl] = React.useState("");
 	const [data, setData] = React.useState([]);
 
-	console.log(data);
-
 	return (
 		<div>
 			{currentState === gameState.close &&
@@ -31,6 +29,7 @@ export default function () {
 				<Questions
 					apiUrl={apiUrl}
 					setData={setData}
+					data={data}
 				/>
 			}
 		</div>
