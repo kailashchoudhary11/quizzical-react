@@ -2,11 +2,11 @@ import "./Option.css";
 
 export default function Option(props) {
 
-    const {option, setData} = props;
-    const {isCorrect, selected, value} = option;
-    const style = "";
+    const { isCorrect, selected, value } = props.option;
+    const style = selected ? "selected": "";
+
     return (
-        <div className={`option ${style}`} onClick={props.handleClick} dangerouslySetInnerHTML={{__html: value}}>
+        <div className={`option ${style}`} onClick={props.handleClick} dangerouslySetInnerHTML={{ __html: value }}>
         </div>
     );
 }
