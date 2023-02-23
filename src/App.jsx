@@ -9,6 +9,7 @@ export default function () {
 	const [currentState, setCurrentState] = React.useState(gameState.close);
 	const [apiUrl, setApiUrl] = React.useState("");
 	const [data, setData] = React.useState([]);
+	const [score, setScore] = React.useState(0);
 
 	return (
 		<div>
@@ -30,6 +31,8 @@ export default function () {
 					apiUrl={apiUrl}
 					setData={setData}
 					data={data}
+					state={currentState}
+					setScore={setScore}
 				/>
 			}
 		</div>

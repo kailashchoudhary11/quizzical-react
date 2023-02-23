@@ -6,7 +6,7 @@ export default function Option(props) {
     const style = selected ? "selected": "";
 
     return (
-        <div className={`option ${style}`} onClick={props.handleClick} dangerouslySetInnerHTML={{ __html: value }}>
+        <div className={`option ${style}`} onClick={props.handleOptionClick} dangerouslySetInnerHTML={{ __html: value }}>
         </div>
     );
 }

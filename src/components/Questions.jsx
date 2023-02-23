@@ -4,7 +4,7 @@ import Question from "./Question";
 import React from "react";
 
 export default function Questions(props) {
-    const { apiUrl, data, setData } = props;
+    const { apiUrl, data, setData, setScore, state } = props;
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -42,8 +42,23 @@ export default function Questions(props) {
             key={i}
             question={question}
             setData={setData}
+            state={state}
         />
     ));
+
+
+    function handleCheckBtnClick(event) {
+        setScore(calculateScore());
+    }
+
+    function calculateScore() {
+        const score = data.reduce((tScore, cQues) => (
+            tScore + cQues.options.reduce((temp, cOption) => (
+                cOption.selected && cOption.isCorrect ? temp + 1 : temp + 0
+            ), 0)
+        ), 0);
+        return score;
+    }
 
     return (
         <>
@@ -55,6 +70,7 @@ export default function Questions(props) {
                 <div className="questions-container">
                     <h1 className="app-title">Quizzical</h1>
                     {questionEls}
+                    <button className="check-btn" onClick={handleCheckBtnClick}>Check Answers</button>
                 </div>
             }
         </>

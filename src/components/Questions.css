@@ -1,3 +1,8 @@
+.questions-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .app-title {
     font-family: 'Karla';
     color: #293264;
@@ -14,6 +19,22 @@
     position: fixed;
     background: white;
     z-index: 1;
+}
+
+.check-btn {
+    background: #4D5B9E;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #F5F7FB;
+    padding: 1rem 3.5rem;
+    cursor: pointer;
+    margin: 2rem ;
+    /* display: block; */
+    width: 15rem;
 }
 
 .spinner {
