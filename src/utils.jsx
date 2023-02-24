@@ -38,7 +38,6 @@ const difficulties = [
 const gameState = {
     select: 0,
     solve: 1,
-    result: 2,
     close: 3,
 };
 

@@ -11,6 +11,7 @@ export default function Question(props) {
             key={i}
             option={option}
             handleOptionClick={handleOptionClick}
+            state={state}
         />
     ));
 

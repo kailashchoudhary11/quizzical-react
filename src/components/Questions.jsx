@@ -1,11 +1,12 @@
 import "./Questions.css"
-import { fetchData, shuffleArray } from "../utils";
+import { fetchData, gameState, shuffleArray } from "../utils";
 import Question from "./Question";
 import React from "react";
 
 export default function Questions(props) {
-    const { apiUrl, data, setData, setScore, state } = props;
+    const { apiUrl, data, score, setData, setScore, setState, state } = props;
     const [loading, setLoading] = React.useState(true);
+    const totalScore = data.length;
 
     React.useEffect(() => {
         async function processData() {
@@ -48,6 +49,7 @@ export default function Questions(props) {
 
 
     function handleCheckBtnClick(event) {
+        setState(gameState.close);
         setScore(calculateScore());
     }
 
@@ -70,7 +72,17 @@ export default function Questions(props) {
                 <div className="questions-container">
                     <h1 className="app-title">Quizzical</h1>
                     {questionEls}
-                    <button className="check-btn" onClick={handleCheckBtnClick}>Check Answers</button>
+                    {
+                        state === gameState.solve ? 
+                        <button className="check-btn" onClick={handleCheckBtnClick}>Check Answers</button>
+                        :
+                        <div className="play-again-cont">
+                            <span className="score-text">
+                                You scored {score} / {totalScore} correct answers
+                            </span>
+                            <button className="play-again-btn">Play again</button>
+                        </div> 
+                    }
                 </div>
             }
         </>

@@ -6,14 +6,14 @@ import Questions from "./components/Questions";
 
 export default function () {
 
-	const [currentState, setCurrentState] = React.useState(gameState.close);
+	const [currentState, setCurrentState] = React.useState(gameState.open);
 	const [apiUrl, setApiUrl] = React.useState("");
 	const [data, setData] = React.useState([]);
 	const [score, setScore] = React.useState(0);
 
 	return (
 		<div>
-			{currentState === gameState.close &&
+			{currentState === gameState.open &&
 				<Home
 					setGameState={setCurrentState}
 				/>
@@ -26,13 +26,15 @@ export default function () {
 				/>
 			}
 
-			{currentState === gameState.solve &&
+			{(currentState === gameState.solve || currentState === gameState.close) &&
 				<Questions
 					apiUrl={apiUrl}
-					setData={setData}
 					data={data}
-					state={currentState}
+					score={score}
+					setData={setData}
 					setScore={setScore}
+					setState={setCurrentState}
+					state={currentState}
 				/>
 			}
 		</div>
