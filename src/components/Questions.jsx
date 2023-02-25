@@ -4,7 +4,7 @@ import Question from "./Question";
 import React from "react";
 
 export default function Questions(props) {
-    const { apiUrl, data, score, setData, setScore, setState, state } = props;
+    const { apiUrl, data, newQuiz, score, setData, setScore, setState, state } = props;
     const [loading, setLoading] = React.useState(true);
     const totalScore = data.length;
 
@@ -93,7 +93,7 @@ export default function Questions(props) {
                                 <span className="score-text">
                                     You scored {score} / {totalScore} correct answers
                                 </span>
-                                <button className="play-again-btn">Play again</button>
+                                <button onClick={newQuiz} className="play-again-btn">Play again</button>
                             </div>
                     }
                 </div>

@@ -11,6 +11,13 @@ export default function () {
 	const [data, setData] = React.useState([]);
 	const [score, setScore] = React.useState(0);
 
+	function newQuiz() {
+		setScore(0);
+		setApiUrl("");
+		setData([]);
+		setCurrentState(gameState.open);
+	}
+
 	return (
 		<div>
 			{currentState === gameState.open &&
@@ -30,6 +37,7 @@ export default function () {
 				<Questions
 					apiUrl={apiUrl}
 					data={data}
+					newQuiz={newQuiz}
 					score={score}
 					setData={setData}
 					setScore={setScore}
