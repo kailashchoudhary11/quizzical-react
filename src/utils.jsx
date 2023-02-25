@@ -53,6 +53,12 @@ async function fetchData(url) {
     return data;
 }
 
+function decodeHtml(text) {
+    let txt = document.createElement("textarea");
+    txt.innerHTML = text;
+    return txt.value;
+}
+
 function shuffleArray(array) {
     let currentIndex = array.length, randomIndex;
 
@@ -68,4 +74,4 @@ function shuffleArray(array) {
 }
 
 
-export { baseUrl, categories, difficulties, fetchData, gameState, initialData, shuffleArray, };
+export { baseUrl, categories, decodeHtml, difficulties, fetchData, gameState, initialData, shuffleArray, };
