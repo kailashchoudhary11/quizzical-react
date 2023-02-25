@@ -21,7 +21,7 @@
     z-index: 1;
 }
 
-.check-btn, .play-again-btn {
+.check-btn, .play-again-btn, .yes-btn, .no-btn {
     background: #4D5B9E;
     border-radius: 1rem;
     border: none;
@@ -34,6 +34,18 @@
     align-self: center;
 }
 
+.yes-btn, .no-btn {
+    margin: 0.5rem;
+}
+
+.yes-btn {
+    background-color: red;
+}
+
+.no-btn {
+    background-color: #4CAF50;
+}
+
 .play-again-cont {
     display: flex;
     flex-wrap: wrap;
@@ -42,7 +54,7 @@
     
 }
 
-.score-text {
+.score-text, .confirm-txt {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -51,6 +63,11 @@
     text-align: center;
     color: #293264;
     margin: 2rem;
+}
+
+.confirm-txt {
+    margin: 0;
+    margin-left: 1rem;
 }
 
 .spinner {

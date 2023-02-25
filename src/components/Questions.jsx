@@ -8,6 +8,8 @@ export default function Questions(props) {
     const [loading, setLoading] = React.useState(true);
     const totalScore = data.length;
 
+    const [confirmCheck, setConfirmCheck] = React.useState(false);
+
     React.useEffect(() => {
         async function processData() {
             const data = (await fetchData(apiUrl)).results;
@@ -73,15 +75,26 @@ export default function Questions(props) {
                     <h1 className="app-title">Quizzical</h1>
                     {questionEls}
                     {
-                        state === gameState.solve ? 
-                        <button className="check-btn" onClick={handleCheckBtnClick}>Check Answers</button>
-                        :
-                        <div className="play-again-cont">
-                            <span className="score-text">
-                                You scored {score} / {totalScore} correct answers
-                            </span>
-                            <button className="play-again-btn">Play again</button>
-                        </div> 
+                        state === gameState.solve ?
+                            <div>
+                                {
+                                    !confirmCheck ?
+                                        <button className="check-btn" onClick={() => setConfirmCheck(true)}>Check Answers</button>
+                                        :
+                                        <div className="confirm">
+                                            <span className="confirm-txt">Are you sure?</span>
+                                            <button className="yes-btn" onClick={handleCheckBtnClick}>Yes</button>
+                                            <button className="no-btn" onClick={() => setConfirmCheck(false)}>No</button>
+                                        </div>
+                                }
+                            </div>
+                            :
+                            <div className="play-again-cont">
+                                <span className="score-text">
+                                    You scored {score} / {totalScore} correct answers
+                                </span>
+                                <button className="play-again-btn">Play again</button>
+                            </div>
                     }
                 </div>
             }
