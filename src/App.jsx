@@ -6,9 +6,10 @@ import Questions from "./components/Questions";
 
 export default function () {
 
-	const [currentState, setCurrentState] = React.useState(gameState.open);
 	const [apiUrl, setApiUrl] = React.useState("");
+	const [currentState, setCurrentState] = React.useState(gameState.open);
 	const [data, setData] = React.useState([]);
+	const [prevScores, setPrevScores] = React.useState(JSON.parse(localStorage.getItem("prev-scores")) || []);
 	const [score, setScore] = React.useState(0);
 
 	function newQuiz() {
@@ -23,6 +24,7 @@ export default function () {
 			{currentState === gameState.open &&
 				<Home
 					setGameState={setCurrentState}
+					prevScores={prevScores}
 				/>
 			}
 
@@ -38,8 +40,10 @@ export default function () {
 					apiUrl={apiUrl}
 					data={data}
 					newQuiz={newQuiz}
+					prevScores={prevScores}
 					score={score}
 					setData={setData}
+					setPrevScores={setPrevScores}
 					setScore={setScore}
 					setState={setCurrentState}
 					state={currentState}

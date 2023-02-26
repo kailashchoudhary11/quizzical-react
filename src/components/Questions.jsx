@@ -4,7 +4,7 @@ import Question from "./Question";
 import React from "react";
 
 export default function Questions(props) {
-    const { apiUrl, data, newQuiz, score, setData, setScore, setState, state } = props;
+    const { apiUrl, data, newQuiz, prevScores, score, setData, setPrevScores, setScore, setState, state } = props;
 
     const [loading, setLoading] = React.useState(true);
     const [confirmCheck, setConfirmCheck] = React.useState(false);
@@ -80,7 +80,17 @@ export default function Questions(props) {
     
     function handleCheckBtnClick(event) {
         setState(gameState.close);
-        setScore(calculateScore());
+        const tempScore = calculateScore();
+        setScore(tempScore);
+        setPrevScores(prev => {
+            const temp = prev;
+            if (temp.length >= 5) {
+                temp.pop();
+            }
+            temp.unshift(`${tempScore}/${totalScore}`);
+            localStorage.setItem("prev-scores", JSON.stringify(temp));
+            return temp;
+        });
     }
 
     function calculateScore() {

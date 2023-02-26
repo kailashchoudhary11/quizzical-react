@@ -8,24 +8,31 @@
 }
 
 .title {
-    font-family: 'Karla';
+    font-family: "Karla";
+}
+
+.last-scores {
+    font-size: 1rem;
+    color: green;
+    margin-bottom: 1rem;
+    text-align: left;
 }
 
 .desc {
-    font-family: 'Inter'; 
-    margin-top: 1rem;  
+    font-family: "Inter";
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .choose-btn {
-    background: #4D5B9E;
+    background: #4d5b9e;
     border-radius: 15px;
     border: none;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-weight: 500;
     font-size: 1rem;
     text-align: center;
-    color: #F5F7FB;
+    color: #f5f7fb;
     padding: 1rem 3.5rem;
     cursor: pointer;
 }
