@@ -5,10 +5,14 @@ import React from "react";
 
 export default function Questions(props) {
     const { apiUrl, data, newQuiz, score, setData, setScore, setState, state } = props;
-    const [loading, setLoading] = React.useState(true);
-    const totalScore = data.length;
 
+    const [loading, setLoading] = React.useState(true);
     const [confirmCheck, setConfirmCheck] = React.useState(false);
+    const totalScore = data.length;
+    const [timeRemaining, setTimeRemaining] = React.useState({
+        mins: 0,
+        secs: 1,
+    });
 
     React.useEffect(() => {
         async function processData() {
@@ -34,11 +38,36 @@ export default function Questions(props) {
             });
 
             setData(questionsData);
+            setTimeRemaining({
+                mins: data.length,
+                secs: 0,
+            });
+            
             setLoading(false);
         }
 
         processData();
     }, [apiUrl]);
+
+    if (data.length > 0) {
+        const timer = setTimeout(() => {
+            if (timeRemaining.mins === 0 && timeRemaining.secs === 0) {
+                clearTimeout(timer);
+                handleCheckBtnClick();
+            }
+            else if (timeRemaining.secs === 0) {
+                setTimeRemaining(prev => ({
+                    secs: 59,
+                    mins: prev.mins - 1,
+                }));
+            } else {
+                setTimeRemaining(prev => ({
+                    ...prev,
+                    secs: prev.secs - 1,
+                }));
+            }
+        }, 1000);
+    }
 
     const questionEls = data.map((question, i) => (
         <Question
@@ -48,8 +77,7 @@ export default function Questions(props) {
             state={state}
         />
     ));
-
-
+    
     function handleCheckBtnClick(event) {
         setState(gameState.close);
         setScore(calculateScore());
@@ -73,6 +101,11 @@ export default function Questions(props) {
                 :
                 <div className="questions-container">
                     <h1 className="app-title">Quizzical</h1>
+                    {
+                        state === gameState.solve
+                        &&
+                        <h4 className="time">Time Remaining: {timeRemaining.mins}:{timeRemaining.secs}</h4>
+                    }
                     {questionEls}
                     {
                         state === gameState.solve ?

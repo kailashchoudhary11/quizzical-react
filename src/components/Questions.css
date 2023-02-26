@@ -4,10 +4,16 @@
 }
 
 .app-title {
-    font-family: 'Karla';
     color: #293264;
     text-align: center;
     margin-top: 1rem;
+}
+
+.time {
+    margin: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
 }
 
 .loader-container {

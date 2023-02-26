@@ -51,7 +51,7 @@ export default function Preferences(props) {
                 <input
                     className="input-el"
                     id="questions"
-                    min={5}
+                    min={1}
                     max={30}
                     name="questions"
                     onChange={handleChange}
